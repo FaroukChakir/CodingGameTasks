@@ -131,8 +131,7 @@ namespace Coding_Game_Backend.Controllers
 
                 return Ok(new
                 {
-                    message = "Task deleted successfully.",
-                    task = newTaskDto
+                    message = "Task deleted successfully."
                 });
             }
             catch (Exception ex)
