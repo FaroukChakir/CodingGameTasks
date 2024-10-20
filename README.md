@@ -54,7 +54,13 @@ export const environment = {
 and use your backend Url.
 for this project and in case its local and Https use : "localhost:7112"
 
-#### Create your database and schema
+#### Install Packages
+
+```bash
+  npm install
+```
+
+#### Run the application
 Run :
 ```bash
   npm start
