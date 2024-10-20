@@ -1,0 +1,29 @@
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isOpen}" [style.display]="isOpen ? 'block' : 'none'">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form #taskForm="ngForm" (ngSubmit)="confirm()">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ title }}</h5>
+        </div>
+        <div class="modal-body">
+          <div>
+            <span>Description</span>
+            <input type="text" class="form-control" [value]="description" name="description" readonly disabled>
+          </div>
+          <div>
+            <span>Status</span>
+            <input type="text" class="form-control" [value]="status" name="status" readonly disabled>
+          </div>
+          <div>
+            <span>Date</span>
+            <input id="startDate" class="form-control" type="date" [value]="date" name="date" readonly disabled>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+          <button type="submit" class="btn btn-danger">Confirm Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

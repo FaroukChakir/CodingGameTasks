@@ -1,0 +1,43 @@
+<div>
+  <h2>Tickets</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Ticket ID</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td data-label="Ticket ID">{{ task.ticketID }}</td>
+        <td data-label="Description">{{ task.description }}</td>
+        <td data-label="Status">{{ task.status ? 'Open' : 'Closed' }}</td>
+        <td data-label="Date">{{ getMonthName(task.date) }}-{{ task.date.getDate() }}-{{ task.date.getFullYear() }}</td>
+        <td data-label="Actions">
+          <div class="Actions">
+            <li class="action-link" (click)="updateTaskModal.open(task)">Update</li>
+            <li class="action-link" (click)="removeTaskModal.open(task)">Delete</li>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>
+    <button class="btn btn-success NewTaskButton" (click)="addTaskModal.open()">Add New</button>
+    <!-- Modals -->
+    <app-modal-add-task #AddTaskmodal [title]="AddmodalTitle" (taskAdded)="onTasksListUpdate($event)"></app-modal-add-task>
+    <app-modal-remove-task #RemoveTaskmodal [title]="RemovemodalTitle" (taskOndeleteEmit)="onTasksListUpdate($event)"></app-modal-remove-task>
+    <app-modal-update-task #UpdateTaskmodal [title]="UpdatemodalTitle" (taskOnUpdate)="onTasksListUpdate($event)"></app-modal-update-task>
+  </div>
+  <!-- Pagination Controls -->
+  <div class="pagination">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>
