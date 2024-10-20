@@ -38,7 +38,7 @@ Clone the project
 ```
 then run your application.
 
-## Visual Cose (Frontend)
+## Visual Code (Frontend)
 #### Angular
 ---
 go to the frontend directry and generate environnement files
