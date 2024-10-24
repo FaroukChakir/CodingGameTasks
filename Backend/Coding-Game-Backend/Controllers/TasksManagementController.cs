@@ -10,11 +10,13 @@ namespace Coding_Game_Backend.Controllers
     [Route("api/[controller]")]
     public class TasksManagementController : ControllerBase
     {
+        private readonly ILogger<TasksManagementController> _logger;
         private readonly ApiDbContext _dbContext;
 
-        public TasksManagementController(ApiDbContext dbContext)
+        public TasksManagementController(ApiDbContext dbContext, ILogger<TasksManagementController> logger)
         {
             _dbContext = dbContext;
+            _logger = logger;
         }
 
         // GET: api/TasksManagement/GetTasks
